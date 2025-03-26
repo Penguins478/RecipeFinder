@@ -60,12 +60,12 @@ Brainstorming Ideas
 
 ## New App Ideas - Evaluate and Categorize
 1. Recipe Finder
-   - **Description**: Helps users discover recipes based on ingredients they already have, dietary needs, cuisine preferences, or time available. Encourages home cooking and reduces food waste.
+   - **Description**: This app helps users discover recipes based on ingredients they already have, dietary needs, cuisine preferences, or time available. Encourages home cooking and reduces food waste. It adds a little fun to cooking as well as you don't know what recipe you're gonna get as well.
    - **Category:** Food & Drink
    - **Mobile:** Mobile is essential for on-the-go recipe lookup, kitchen use while cooking. Could possibly have notifications for daily mail ideas. Theoretically, one could also use the camera and scan a food item to make sure its including in the recipe.  
    - **Story:** Solves the question of "what should I cook/eat today?" problem. Allows users to explore new meals quickly and it encourages creativity, exploration, and possibly healthier eating habits.
-   - **Market:** Any school district or individual classroom teacher of any grade could utilize this app. District wide licensing and custom features could be used for monetization. 
-   - **Habit:** Anyone who cooks at home including college students, parents, etc. 
+   - **Market:** The market is huge and for anyone who cooks at home including college students, parents, etc. 
+   - **Habit:** We could make it a habit for users to check the app by having daily suggestions via push notifications, favorite recipes saved and re-used, along with weekly cooking goals/challenges. Essentially, it could be used multiple times per week, especially at mealtimes.
    - **Scope:** It would be very technically challenging to complete this app but a stripped down version would still be interesting to make. We could make it where a user is recommended a random recipe and they can ask for a new one or favorite the recipe. There could be two modes where the user can ask for a random recipe (not including their favorites) or just filter it down to their favorites. 
 
 2. Music Playlist
