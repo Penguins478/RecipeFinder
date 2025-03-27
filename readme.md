@@ -1,8 +1,3 @@
----
-title: Original App Design Project - README Template
-
----
-
 # Recipe Finder
 
 ## Table of Contents
