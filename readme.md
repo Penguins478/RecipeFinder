@@ -134,3 +134,68 @@ Congratulations
 - [Add list of network requests by screen ]
 - [Create basic snippets for each Parse network request]
 - [OPTIONAL: List endpoints if using existing API such as Yelp]
+
+### Sprints
+
+## Sprint 1: Project Setup + Random Recipe Generator
+
+**Goals:**
+- Build all 3 screens (not all the UI though) along with the nav bar. 
+- Integrate basic mock data.
+- Build basic Home Screen layout.
+- Display a random recipe (title, ingredients, steps, etc... details the API gives us).
+- Add "Generate New Recipe" button.
+
+**SMART Goals:**
+- Working Home Screen that shows a random recipe.
+- Display at least 3 recipe fields.
+
+---
+
+## Sprint 2: Home Screen + Full Recipe View
+
+**Goals:**
+- Implement full Home Screen functionality:
+  - Generate random recipes.
+  - Mark recipes as complete.
+  - Favorite recipes.
+- Create Full Recipe screen for detailed viewing.
+- Enable navigation from Home ➝ Full Recipe and back.
+
+**SMART Goals:**
+- Full recipe view includes picture, ingredients, and instructions.
+- Favorite and complete buttons functional (local state).
+- Complete navigation flow between Home and Full Recipe.
+
+---
+
+## Sprint 3: Favorites + Settings
+
+**Goals:**
+- Build the Favorites screen:
+  - List all favorited recipes.
+  - Navigate to Full Recipe view.
+- Build the Settings screen:
+  - Toggle recipe generation between all vs. favorites-only.
+  - Set/reset goals for completed recipes.
+  - Track completed recipe count.
+
+**SMART Goals:**
+- Settings reflect user preferences and update app behavior.
+- Favorite mode toggle works.
+- Users can view, favorite, and navigate all saved recipes.
+
+---
+
+## Sprint 4: Persistence + Goal Completion
+
+**Goals:**
+- Add local data persistence:
+  - Store favorites, completed count, and goal values.
+- Display Congratulations screen once recipe goal is reached.
+- Polish UI, finalize all navigation routes, squash bugs.
+
+**SMART Goals:**
+- Favorites and completed count persist across app sessions.
+- Congrats screen appears upon reaching goal.
+- Record a working demo and complete all unit submission requirements.
