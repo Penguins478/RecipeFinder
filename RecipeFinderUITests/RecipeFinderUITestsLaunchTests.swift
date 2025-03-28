@@ -1,13 +1,13 @@
 //
-//  TriviaUITestsLaunchTests.swift
-//  TriviaUITests
+//  RecipeFinderUITestsLaunchTests.swift
+//  RecipeFinderUITests
 //
-//  Created by Mari Batilando on 4/6/23.
+//  Created by Troy Tamura on 3/27/25.
 //
 
 import XCTest
 
-final class TriviaUITestsLaunchTests: XCTestCase {
+final class RecipeFinderUITestsLaunchTests: XCTestCase {
 
     override class var runsForEachTargetApplicationUIConfiguration: Bool {
         true
@@ -17,6 +17,7 @@ final class TriviaUITestsLaunchTests: XCTestCase {
         continueAfterFailure = false
     }
 
+    @MainActor
     func testLaunch() throws {
         let app = XCUIApplication()
         app.launch()
