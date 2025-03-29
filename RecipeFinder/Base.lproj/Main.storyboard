@@ -77,19 +77,19 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AJb-te-d5L">
-                                <rect key="frame" x="83" y="169" width="227" height="35"/>
+                                <rect key="frame" x="77" y="169" width="240" height="35"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="tinted" title="Generate Random Recipes"/>
+                                <buttonConfiguration key="configuration" style="tinted" title="Generate any random recipe"/>
                                 <connections>
                                     <action selector="randomizedButtonClicked:" destination="aKj-I0-5bR" eventType="touchUpInside" id="HQJ-tI-wWL"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Q4y-3j-cVZ">
-                                <rect key="frame" x="80" y="250" width="234" height="35"/>
+                                <rect key="frame" x="66" y="250" width="262" height="35"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="tinted" title="Generate Favorited Recipes"/>
+                                <buttonConfiguration key="configuration" style="tinted" title="Generate only favorited recipes"/>
                                 <connections>
                                     <action selector="favoritedButtonClicked:" destination="aKj-I0-5bR" eventType="touchUpInside" id="Oiq-Ni-EOa"/>
                                 </connections>
