@@ -15,10 +15,72 @@
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="3nu-ZV-je5">
+                                <rect key="frame" x="57" y="132" width="278" height="520"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" axis="vertical" spacing="14" translatesAutoresizingMaskIntoConstraints="NO" id="Zlv-nq-9uO">
+                                        <rect key="frame" x="19" y="16" width="240" height="283.33333333333331"/>
+                                        <subviews>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" adjustsImageSizeForAccessibilityContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="tEe-jG-JX1">
+                                                <rect key="frame" x="0.0" y="0.0" width="240" height="173"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" secondItem="tEe-jG-JX1" secondAttribute="height" multiplier="240:173" id="6KL-Dh-Eyu"/>
+                                                    <constraint firstAttribute="height" constant="173" id="8z6-LS-1kf"/>
+                                                    <constraint firstAttribute="width" constant="240" id="gQJ-Cq-sFb"/>
+                                                </constraints>
+                                            </imageView>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Recipe Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rry-K3-atj">
+                                                <rect key="frame" x="0.0" y="187" width="240" height="27.666666666666657"/>
+                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="23"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Recipe Category" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Gdx-SP-Y1W">
+                                                <rect key="frame" x="0.0" y="228.66666666666669" width="240" height="20.333333333333343"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ingredients Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="15" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TpT-hE-P4b">
+                                                <rect key="frame" x="0.0" y="263" width="240" height="20.333333333333314"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstAttribute="trailing" secondItem="tEe-jG-JX1" secondAttribute="trailing" id="UWG-vF-BNI"/>
+                                            <constraint firstItem="rry-K3-atj" firstAttribute="top" secondItem="tEe-jG-JX1" secondAttribute="bottom" constant="14" id="Ykv-3h-6Tf"/>
+                                            <constraint firstItem="tEe-jG-JX1" firstAttribute="leading" secondItem="Zlv-nq-9uO" secondAttribute="leading" id="eCG-Rq-qdT"/>
+                                            <constraint firstItem="tEe-jG-JX1" firstAttribute="top" secondItem="Zlv-nq-9uO" secondAttribute="top" id="m1L-yY-9zx"/>
+                                        </constraints>
+                                    </stackView>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="opaqueSeparatorColor"/>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zUg-RR-5Le">
+                                <rect key="frame" x="57" y="666" width="278" height="47"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="filled" title="Generate New Recipe"/>
+                                <connections>
+                                    <action selector="didTapNewRecipeButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="gPZ-TJ-Tb6"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
                     <navigationItem key="navigationItem" title="Recipe Finder" id="UJb-ro-Ke2"/>
+                    <connections>
+                        <outlet property="NewRecipeButton" destination="zUg-RR-5Le" id="QCf-Yx-hke"/>
+                        <outlet property="ingredientsLabel" destination="TpT-hE-P4b" id="sCO-F4-7d1"/>
+                        <outlet property="mealImageView" destination="tEe-jG-JX1" id="UU4-nr-EXm"/>
+                        <outlet property="recipeCategoryLabel" destination="Gdx-SP-Y1W" id="F1o-ZN-Hwe"/>
+                        <outlet property="recipeNameLabel" destination="rry-K3-atj" id="Bm4-ZA-lEe"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
@@ -184,6 +246,9 @@
         <image name="bookmark" catalog="system" width="110" height="128"/>
         <image name="gear" catalog="system" width="128" height="122"/>
         <image name="homekit" catalog="system" width="128" height="104"/>
+        <systemColor name="opaqueSeparatorColor">
+            <color red="0.77647058820000003" green="0.77647058820000003" blue="0.7843137255" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

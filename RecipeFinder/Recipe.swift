@@ -63,16 +63,34 @@ struct Recipe: Decodable {
     let strMeasure20: String?
     
     var ingredients: [String] {
-        var list: [String] = []
-        for i in 1...20 {
-            let mirror = Mirror(reflecting: self)
-            if let ingredient = mirror.children.first(where: { $0.label == "strIngredient\(i)" })?.value as? String,
-               let measure = mirror.children.first(where: { $0.label == "strMeasure\(i)" })?.value as? String,
-               !ingredient.trimmingCharacters(in: .whitespaces).isEmpty {
-                list.append("\(measure) \(ingredient)")
+        let ingredients: [String?] = [
+            strIngredient1, strIngredient2, strIngredient3, strIngredient4, strIngredient5,
+            strIngredient6, strIngredient7, strIngredient8, strIngredient9, strIngredient10,
+            strIngredient11, strIngredient12, strIngredient13, strIngredient14, strIngredient15,
+            strIngredient16, strIngredient17, strIngredient18, strIngredient19, strIngredient20
+        ]
+
+        let measures: [String?] = [
+            strMeasure1, strMeasure2, strMeasure3, strMeasure4, strMeasure5,
+            strMeasure6, strMeasure7, strMeasure8, strMeasure9, strMeasure10,
+            strMeasure11, strMeasure12, strMeasure13, strMeasure14, strMeasure15,
+            strMeasure16, strMeasure17, strMeasure18, strMeasure19, strMeasure20
+        ]
+
+        var result: [String] = []
+
+        for i in 0..<20 {
+            guard let ingredient = ingredients[i]?.trimmingCharacters(in: .whitespacesAndNewlines),
+                  !ingredient.isEmpty else {
+                continue
             }
+
+            let measure = measures[i]?.trimmingCharacters(in: .whitespacesAndNewlines) ?? ""
+            result.append(measure.isEmpty ? "\(ingredient)" : "\(measure) \(ingredient)")
         }
-        return list
+
+        return result
     }
+
 }
 

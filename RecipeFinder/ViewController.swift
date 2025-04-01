@@ -9,29 +9,63 @@ import UIKit
 
 class ViewController: UIViewController {
 
+    @IBOutlet weak var mealImageView: UIImageView!
+    @IBOutlet weak var recipeNameLabel: UILabel!
+    @IBOutlet weak var recipeCategoryLabel: UILabel!
+    @IBOutlet weak var ingredientsTextView: UITextView!
+    @IBOutlet weak var ingredientsLabel: UILabel!
+    @IBOutlet weak var watchVideoButton: UIButton!
+    @IBOutlet weak var NewRecipeButton: UIButton!
+    
+    private var currentRecipe: Recipe?
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        print("loaded")
+        fetchAndDisplayRecipe()
+    }
 
-        RecipeService.fetchRandomRecipe { recipe in
-            guard let recipe = recipe else {
-                print("No recipe found.")
-                return
-            }
+    private func fetchAndDisplayRecipe() {
+        RecipeService.fetchRandomRecipe { [weak self] recipe in
+            guard let self = self, let recipe = recipe else { return }
+            self.currentRecipe = recipe
+            self.updateUI(with: recipe)
+        }
+    }
 
-            print("🍽️ Recipe: \(recipe.strMeal)")
-            print("📂 Category: \(recipe.strCategory ?? "Unknown")")
-            print("🌍 Area: \(recipe.strArea ?? "Unknown")")
-            print("📖 Instructions: \(recipe.strInstructions ?? "None")")
+    private func updateUI(with recipe: Recipe) {
+        print("🍽️ Recipe ingredients: \(recipe.ingredients.joined(separator: "\n"))")
+        recipeNameLabel.text = recipe.strMeal
+        recipeCategoryLabel.text = "Category: \(recipe.strCategory ?? "N/A")"
+//        instructionsTextView.text = recipe.strInstructions ?? "No instructions"
+        ingredientsLabel.text = "\(recipe.ingredients.joined(separator: "\n"))"
+        
+        if let imageURL = recipe.strMealThumb {
+            loadImage(from: imageURL, into: mealImageView)
+        }
 
-            print("🖼️ Image URL: \(recipe.strMealThumb ?? "No image")")
-            print("🎥 YouTube: \(recipe.strYoutube ?? "No video")")
+//        watchVideoButton.isHidden = recipe.strYoutube == nil || recipe.strYoutube!.isEmpty
+    }
 
-            print("🧂 Ingredients:")
-            for item in recipe.ingredients {
-                print("• \(item)")
+    private func loadImage(from urlString: String, into imageView: UIImageView) {
+        guard let url = URL(string: urlString) else { return }
+        DispatchQueue.global().async {
+            if let data = try? Data(contentsOf: url),
+               let image = UIImage(data: data) {
+                DispatchQueue.main.async {
+                    imageView.image = image
+                }
             }
         }
+    }
+
+    @IBAction func didTapNewRecipeButton(_ sender: UIButton) {
+        fetchAndDisplayRecipe()
+    }
+
+    @IBAction func didTapWatchVideoButton(_ sender: UIButton) {
+        guard let urlString = currentRecipe?.strYoutube,
+              let url = URL(string: urlString) else { return }
+        UIApplication.shared.open(url)
     }
 }
 
