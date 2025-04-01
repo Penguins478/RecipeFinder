@@ -11,29 +11,38 @@ class SettingsViewController: UIViewController {
 
     
     var randomized = true
-    var favorited = false
     
     @IBOutlet weak var randomButton: UIButton!
     
-    @IBOutlet weak var favoritedButton: UIButton!
-    
-    @IBAction func randomizedButtonClicked(_ sender: UIButton) {
-        // idempotent
-        randomized = true
-        favorited = false
-        print("bruh1")
-    }
-    
-    @IBAction func favoritedButtonClicked(_ sender: UIButton) {
-        randomized = false
-        favorited = true
-        print("bruh2")
-    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         print("SettingsViewController loaded")
+        setupDropdownMenu()
         // Do any additional setup after loading the view.
+    }
+    
+    func setupDropdownMenu() {
+        updateMenu()
+    }
+
+    func updateMenu() {
+        let option1 = UIAction(title: "Randomized", state: randomized ? .on : .off, handler: { _ in
+            self.randomized = true
+            self.updateMenu() // checkmark
+            print("Option 1 selected, randomized = \(self.randomized)")
+        })
+        
+        let option2 = UIAction(title: "Favorites", state: !randomized ? .on : .off, handler: { _ in
+            self.randomized = false
+            self.updateMenu() // checkmark
+            print("Option 2 selected, randomized = \(self.randomized)")
+        })
+        
+        let menu = UIMenu(title: "Choose an option", options: .displayInline, children: [option1, option2])
+        
+        randomButton.menu = menu
+        randomButton.showsMenuAsPrimaryAction = true // opens menu on tap
     }
     
 
