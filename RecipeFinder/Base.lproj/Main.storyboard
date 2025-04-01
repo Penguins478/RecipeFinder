@@ -153,7 +153,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Iha-6T-YPh" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1053" y="653"/>
+            <point key="canvasLocation" x="1955" y="720"/>
         </scene>
         <!--Settings View Controller-->
         <scene sceneID="iOY-Dx-xFB">
@@ -170,21 +170,12 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AJb-te-d5L">
-                                <rect key="frame" x="77" y="169" width="240" height="35"/>
+                                <rect key="frame" x="67" y="169" width="261" height="35"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="tinted" title="Generate any random recipe"/>
+                                <buttonConfiguration key="configuration" style="tinted" title="Toggle recipe generation mode"/>
                                 <connections>
                                     <action selector="randomizedButtonClicked:" destination="aKj-I0-5bR" eventType="touchUpInside" id="HQJ-tI-wWL"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Q4y-3j-cVZ">
-                                <rect key="frame" x="66" y="250" width="262" height="35"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="tinted" title="Generate only favorited recipes"/>
-                                <connections>
-                                    <action selector="favoritedButtonClicked:" destination="aKj-I0-5bR" eventType="touchUpInside" id="Oiq-Ni-EOa"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -198,13 +189,12 @@
                     </view>
                     <navigationItem key="navigationItem" id="fZQ-rg-m1g"/>
                     <connections>
-                        <outlet property="favoritedButton" destination="Q4y-3j-cVZ" id="c4N-8J-meR"/>
                         <outlet property="randomButton" destination="AJb-te-d5L" id="wIi-Et-jS9"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3U7-ZF-OtX" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2005.3435114503816" y="1337.323943661972"/>
+            <point key="canvasLocation" x="1193" y="1435"/>
         </scene>
         <!--Favorites-->
         <scene sceneID="lyc-8B-atb">
@@ -221,7 +211,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4ue-ho-7wj" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="150" y="653"/>
+            <point key="canvasLocation" x="1028" y="720"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="laA-LZ-FYW">
@@ -279,7 +269,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="flT-Uu-eSB" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1078.6259541984732" y="1337.323943661972"/>
+            <point key="canvasLocation" x="102" y="1435"/>
         </scene>
     </scenes>
     <resources>
@@ -293,7 +283,7 @@
             <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="opaqueSeparatorColor">
-            <color red="0.77647058823529413" green="0.77647058823529413" blue="0.78431372549019607" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.77647058820000003" green="0.77647058820000003" blue="0.7843137255" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
