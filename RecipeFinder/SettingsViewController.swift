@@ -10,16 +10,45 @@ import UIKit
 class SettingsViewController: UIViewController {
 
     
-    var randomized = true
-    
     @IBOutlet weak var randomButton: UIButton!
+    
+    @IBOutlet weak var goalStepper: UIStepper!
+    
+    @IBOutlet weak var goalCounter: UILabel!
+    
+    
+    @IBOutlet weak var completedText: UILabel!
+    
+    
+    @IBOutlet weak var resetButton: UIButton!
+    
+    
+    var completedRecipes = 0 {
+        didSet {
+            updateCompletedLabel()
+        }
+    }
+    
+    var randomized = true
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
         print("SettingsViewController loaded")
         setupDropdownMenu()
-        // Do any additional setup after loading the view.
+        
+        goalStepper.minimumValue = 0
+        goalStepper.maximumValue = 1000
+        goalStepper.stepValue = 1
+        goalStepper.value = 5
+        goalCounter.text = "\(Int(goalStepper.value))"
+        
+        updateCompletedLabel()
+        
+    }
+    
+    func updateCompletedLabel() {
+        completedText.text = "Completed \(completedRecipes) unique recipes"
     }
     
     func setupDropdownMenu() {
@@ -31,6 +60,7 @@ class SettingsViewController: UIViewController {
             self.randomized = true
             self.updateMenu() // checkmark
             print("Option 1 selected, randomized = \(self.randomized)")
+             self.completedRecipes += 1 // just example
         })
         
         let option2 = UIAction(title: "Favorites", state: !randomized ? .on : .off, handler: { _ in
@@ -44,6 +74,32 @@ class SettingsViewController: UIViewController {
         randomButton.menu = menu
         randomButton.showsMenuAsPrimaryAction = true // opens menu on tap
     }
+    
+    @IBAction func stepperValueChanged(_ sender: UIStepper) {
+        goalCounter.text = "\(Int(sender.value))"
+    }
+    
+    @IBAction func resetRecipeCounter(_ sender: UIButton) {
+        showResetConfirmation()
+    }
+    
+    func showResetConfirmation() {
+        let alert = UIAlertController(title: "Reset Goal Counter",
+                                      message: "Are you sure you want to reset the recipe goal counter?",
+                                      preferredStyle: .alert)
+
+        let yesAction = UIAlertAction(title: "Yes", style: .destructive) { _ in
+            self.completedRecipes = 0
+        }
+        
+        let noAction = UIAlertAction(title: "No", style: .cancel, handler: nil)
+
+        alert.addAction(yesAction)
+        alert.addAction(noAction)
+
+        self.present(alert, animated: true, completion: nil)
+    }
+    
     
 
     /*
