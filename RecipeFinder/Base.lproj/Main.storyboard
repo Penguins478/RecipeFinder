@@ -16,12 +16,11 @@
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="3nu-ZV-je5">
-                                <rect key="frame" x="57" y="132" width="278" height="520"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3nu-ZV-je5">
+                                <rect key="frame" x="57" y="132" width="279" height="581"/>
                                 <subviews>
-                                    <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" axis="vertical" spacing="14" translatesAutoresizingMaskIntoConstraints="NO" id="Zlv-nq-9uO">
-                                        <rect key="frame" x="19" y="16" width="240" height="283.33333333333331"/>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="14" translatesAutoresizingMaskIntoConstraints="NO" id="Zlv-nq-9uO">
+                                        <rect key="frame" x="19.666666666666686" y="16" width="240" height="542.66666666666663"/>
                                         <subviews>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" adjustsImageSizeForAccessibilityContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="tEe-jG-JX1">
                                                 <rect key="frame" x="0.0" y="0.0" width="240" height="173"/>
@@ -31,9 +30,35 @@
                                                     <constraint firstAttribute="width" constant="240" id="gQJ-Cq-sFb"/>
                                                 </constraints>
                                             </imageView>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Recipe Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rry-K3-atj">
-                                                <rect key="frame" x="0.0" y="187" width="240" height="27.666666666666657"/>
-                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="23"/>
+                                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="kNN-TU-ODE">
+                                                <rect key="frame" x="0.0" y="187" width="240" height="22"/>
+                                                <subviews>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ksr-1Z-qC9">
+                                                        <rect key="frame" x="0.0" y="0.0" width="80" height="22"/>
+                                                        <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                                        <state key="normal" title="" image="star" catalog="system"/>
+                                                    </button>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Oos-TK-fSI">
+                                                        <rect key="frame" x="79.999999999999986" y="0.0" width="80.000000000000014" height="22"/>
+                                                        <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                                        <state key="normal" image="movieclapper" catalog="system"/>
+                                                        <connections>
+                                                            <action selector="didTapWatchVideoButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="iIw-UK-jYP"/>
+                                                        </connections>
+                                                    </button>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VLV-ty-6eq">
+                                                        <rect key="frame" x="160" y="0.0" width="80" height="22"/>
+                                                        <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                                        <state key="normal" image="checkmark.seal" catalog="system"/>
+                                                    </button>
+                                                </subviews>
+                                            </stackView>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Recipe Name" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rry-K3-atj">
+                                                <rect key="frame" x="0.0" y="223" width="240" height="23"/>
+                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="19"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
@@ -43,12 +68,13 @@
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ingredients Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="15" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TpT-hE-P4b">
-                                                <rect key="frame" x="0.0" y="263" width="240" height="20.333333333333314"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                <nil key="textColor"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
+                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="tJD-lD-JcF">
+                                                <rect key="frame" x="0.0" y="295.66666666666669" width="240" height="247.00000000000006"/>
+                                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                                <color key="textColor" systemColor="labelColor"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                            </textView>
                                         </subviews>
                                         <constraints>
                                             <constraint firstAttribute="trailing" secondItem="tEe-jG-JX1" secondAttribute="trailing" id="UWG-vF-BNI"/>
@@ -59,14 +85,29 @@
                                     </stackView>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="opaqueSeparatorColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="581" id="BOF-LK-kMn"/>
+                                    <constraint firstItem="Zlv-nq-9uO" firstAttribute="centerX" secondItem="3nu-ZV-je5" secondAttribute="centerX" id="Szr-zS-D8B"/>
+                                    <constraint firstAttribute="width" constant="279" id="aNB-BU-Hju"/>
+                                    <constraint firstAttribute="bottom" secondItem="Zlv-nq-9uO" secondAttribute="bottom" constant="22.333333333333371" id="o4z-lx-VOI"/>
+                                    <constraint firstItem="Zlv-nq-9uO" firstAttribute="top" secondItem="3nu-ZV-je5" secondAttribute="top" constant="16" id="pqj-dl-gMa"/>
+                                </constraints>
                             </view>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zUg-RR-5Le">
-                                <rect key="frame" x="57" y="666" width="278" height="47"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="filled" title="Generate New Recipe"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zUg-RR-5Le">
+                                <rect key="frame" x="57" y="727" width="278" height="47"/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="47" id="9Iy-RT-Y8U"/>
+                                    <constraint firstAttribute="width" constant="278" id="Fa8-xd-VR3"/>
+                                </constraints>
+                                <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                <state key="normal" title="Generate New Recipe">
+                                    <color key="titleColor" systemColor="groupTableViewBackgroundColor"/>
+                                    <color key="titleShadowColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
                                 <connections>
-                                    <action selector="didTapNewRecipeButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="gPZ-TJ-Tb6"/>
+                                    <action selector="didTapNewRecipeButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="aVO-c2-XFz"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -75,11 +116,12 @@
                     </view>
                     <navigationItem key="navigationItem" title="Recipe Finder" id="UJb-ro-Ke2"/>
                     <connections>
-                        <outlet property="NewRecipeButton" destination="zUg-RR-5Le" id="QCf-Yx-hke"/>
-                        <outlet property="ingredientsLabel" destination="TpT-hE-P4b" id="sCO-F4-7d1"/>
+                        <outlet property="NewRecipeButton" destination="zUg-RR-5Le" id="Khw-c1-APW"/>
+                        <outlet property="detailsTextView" destination="tJD-lD-JcF" id="bLZ-de-xWu"/>
                         <outlet property="mealImageView" destination="tEe-jG-JX1" id="UU4-nr-EXm"/>
                         <outlet property="recipeCategoryLabel" destination="Gdx-SP-Y1W" id="F1o-ZN-Hwe"/>
                         <outlet property="recipeNameLabel" destination="rry-K3-atj" id="Bm4-ZA-lEe"/>
+                        <outlet property="watchVideoButton" destination="Oos-TK-fSI" id="T1V-Ny-h5E"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -277,6 +319,14 @@
         <image name="bookmark" catalog="system" width="110" height="128"/>
         <image name="gear" catalog="system" width="128" height="122"/>
         <image name="homekit" catalog="system" width="128" height="104"/>
+        <image name="movieclapper" catalog="system" width="128" height="113"/>
+        <image name="star" catalog="system" width="128" height="116"/>
+        <systemColor name="groupTableViewBackgroundColor">
+            <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="labelColor">
+            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
         <systemColor name="opaqueSeparatorColor">
             <color red="0.77647058820000003" green="0.77647058820000003" blue="0.7843137255" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
