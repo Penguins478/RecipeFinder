@@ -12,10 +12,10 @@ class ViewController: UIViewController {
     @IBOutlet weak var mealImageView: UIImageView!
     @IBOutlet weak var recipeNameLabel: UILabel!
     @IBOutlet weak var recipeCategoryLabel: UILabel!
-    @IBOutlet weak var ingredientsTextView: UITextView!
-    @IBOutlet weak var ingredientsLabel: UILabel!
-    @IBOutlet weak var watchVideoButton: UIButton!
+    @IBOutlet weak var detailsTextView: UITextView!
     @IBOutlet weak var NewRecipeButton: UIButton!
+    @IBOutlet weak var watchVideoButton: UIButton!
+    
     
     private var currentRecipe: Recipe?
 
@@ -33,17 +33,29 @@ class ViewController: UIViewController {
     }
 
     private func updateUI(with recipe: Recipe) {
-        print("🍽️ Recipe ingredients: \(recipe.ingredients.joined(separator: "\n"))")
         recipeNameLabel.text = recipe.strMeal
         recipeCategoryLabel.text = "Category: \(recipe.strCategory ?? "N/A")"
-//        instructionsTextView.text = recipe.strInstructions ?? "No instructions"
-        ingredientsLabel.text = "\(recipe.ingredients.joined(separator: "\n"))"
         
+        let bulletIngredients = recipe.ingredients.map { "• \($0)" }.joined(separator: "\n")
+
+        let formattedInstructions = recipe.strInstructions?
+            .replacingOccurrences(of: "\r\n", with: "\n")
+            .components(separatedBy: "\n")
+            .filter { !$0.trimmingCharacters(in: .whitespaces).isEmpty }
+            .enumerated()
+            .map { "\($0 + 1). \($1)" }
+            .joined(separator: "\n") ?? "No instructions available."
+
+        var detailsString = "Ingredients:\n\(bulletIngredients)\n\n"
+        detailsString += "Instructions:\n\(formattedInstructions)"
+
+        detailsTextView.text = detailsString
+        detailsTextView.setContentOffset(.zero, animated: false)
+
         if let imageURL = recipe.strMealThumb {
             loadImage(from: imageURL, into: mealImageView)
         }
 
-//        watchVideoButton.isHidden = recipe.strYoutube == nil || recipe.strYoutube!.isEmpty
     }
 
     private func loadImage(from urlString: String, into imageView: UIImageView) {
