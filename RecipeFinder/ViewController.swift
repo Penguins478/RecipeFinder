@@ -14,15 +14,34 @@ class ViewController: UIViewController {
     @IBOutlet weak var recipeCategoryLabel: UILabel!
     @IBOutlet weak var detailsTextView: UITextView!
     @IBOutlet weak var NewRecipeButton: UIButton!
+    @IBOutlet weak var favoritesButton: UIButton!
     @IBOutlet weak var watchVideoButton: UIButton!
     @IBOutlet weak var completedRecipeButton: UIButton!
     
     private var currentRecipe: Recipe?
     
     private var completedRecipesSet: Set<String> = []
+    private var favoriteRecipes: [Recipe] = []
+    private let favoritesKey = "favoriteRecipes"
+
+    private func saveFavorites() {
+        let encoder = JSONEncoder()
+        if let encoded = try? encoder.encode(favoriteRecipes) {
+            UserDefaults.standard.set(encoded, forKey: favoritesKey)
+        }
+    }
+
+    private func loadFavorites() {
+        let decoder = JSONDecoder()
+        if let data = UserDefaults.standard.data(forKey: favoritesKey),
+           let decoded = try? decoder.decode([Recipe].self, from: data) {
+            favoriteRecipes = decoded
+        }
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        loadFavorites()
         fetchAndDisplayRecipe()
         completedRecipeButton.addTarget(self, action: #selector(clickedRecipeCompletionButton), for: .touchUpInside)
         print("Home screen loaded")
@@ -86,6 +105,12 @@ class ViewController: UIViewController {
                 // leave it
             }
         }
+        
+        if favoriteRecipes.contains(where: { $0.strMeal == recipe.strMeal }) {
+            favoritesButton.tintColor = .systemRed
+        } else {
+            favoritesButton.tintColor = .black
+        }
 
     }
 
@@ -100,7 +125,38 @@ class ViewController: UIViewController {
             }
         }
     }
+    
+    
+    @IBAction func didTapFavoriteButton(_ sender: Any) {
+        guard let recipe = currentRecipe else { return }
 
+        if let index = favoriteRecipes.firstIndex(where: { $0.strMeal == recipe.strMeal }) {
+            favoriteRecipes.remove(at: index)
+            favoritesButton.tintColor = .black
+            print("Removed from favorites: \(recipe.strMeal)")
+        } else {
+            favoriteRecipes.append(recipe)
+            favoritesButton.tintColor = .systemRed
+            print("Added to favorites: \(recipe.strMeal)")
+        }
+        
+        saveFavorites()
+        printFavoriteRecipes()
+    }
+    
+    func printFavoriteRecipes() {
+        if favoriteRecipes.isEmpty {
+            print("No favorite recipes yet.")
+            return
+        }
+
+        print("⭐️ Favorite Recipes:")
+        for (index, recipe) in favoriteRecipes.enumerated() {
+            print("\(index + 1). \(recipe.strMeal)")
+        }
+    }
+
+    
     @IBAction func didTapNewRecipeButton(_ sender: UIButton) {
         fetchAndDisplayRecipe()
     }
