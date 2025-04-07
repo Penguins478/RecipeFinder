@@ -16,18 +16,12 @@ class SettingsViewController: UIViewController {
     
     @IBOutlet weak var goalCounter: UILabel!
     
-    
     @IBOutlet weak var completedText: UILabel!
-    
     
     @IBOutlet weak var resetButton: UIButton!
     
-    
-    var completedRecipes = 0 {
-        didSet {
-            updateCompletedLabel()
-        }
-    }
+    static var recipeGoal = 5
+    static var completedRecipes = 0
     
     var randomized = true
     
@@ -47,8 +41,14 @@ class SettingsViewController: UIViewController {
         
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        updateCompletedLabel()
+        print("Settings screen opened")
+    }
+    
     func updateCompletedLabel() {
-        completedText.text = "Completed \(completedRecipes) unique recipes"
+        completedText.text = "Completed \(SettingsViewController.completedRecipes) unique recipes"
     }
     
     func setupDropdownMenu() {
@@ -60,13 +60,15 @@ class SettingsViewController: UIViewController {
             self.randomized = true
             self.updateMenu() // checkmark
             print("Option 1 selected, randomized = \(self.randomized)")
-             self.completedRecipes += 1 // just example
+            //SettingsViewController.completedRecipes += 1 // just example
+            self.updateCompletedLabel()
         })
         
         let option2 = UIAction(title: "Favorites", state: !randomized ? .on : .off, handler: { _ in
             self.randomized = false
             self.updateMenu() // checkmark
             print("Option 2 selected, randomized = \(self.randomized)")
+            self.updateCompletedLabel()
         })
         
         let menu = UIMenu(title: "Choose an option", options: .displayInline, children: [option1, option2])
@@ -77,6 +79,8 @@ class SettingsViewController: UIViewController {
     
     @IBAction func stepperValueChanged(_ sender: UIStepper) {
         goalCounter.text = "\(Int(sender.value))"
+        SettingsViewController.recipeGoal = Int(sender.value)
+        //print(SettingsViewController.recipeGoal)
     }
     
     @IBAction func resetRecipeCounter(_ sender: UIButton) {
@@ -89,7 +93,8 @@ class SettingsViewController: UIViewController {
                                       preferredStyle: .alert)
 
         let yesAction = UIAlertAction(title: "Yes", style: .destructive) { _ in
-            self.completedRecipes = 0
+            SettingsViewController.completedRecipes = 0
+            self.updateCompletedLabel()
         }
         
         let noAction = UIAlertAction(title: "No", style: .cancel, handler: nil)
