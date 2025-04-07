@@ -166,6 +166,8 @@ class ViewController: UIViewController {
         confettiCell.scale = 0.3
         confettiCell.scaleRange = 0.1
         confettiCell.color = UIColor.blue.cgColor
+        confettiCell.yAcceleration = 100
+        confettiCell.alphaSpeed = -0.5
         
         confettiEmitter.emitterCells = [confettiCell]
         
