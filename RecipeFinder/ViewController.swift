@@ -47,7 +47,8 @@ class ViewController: UIViewController {
     }
 
     private func updateUI(with recipe: Recipe) {
-        recipeNameLabel.text = recipe.strMeal
+        let recipeName = recipe.strMeal.capitalized
+        recipeNameLabel.text = recipeName
         recipeCategoryLabel.text = "Category: \(recipe.strCategory ?? "N/A")"
         
         let bulletIngredients = recipe.ingredients.map { "• \($0)" }.joined(separator: "\n")
@@ -71,14 +72,14 @@ class ViewController: UIViewController {
         }
         
         if completedRecipeButton.isSelected {
-            if completedRecipesSet.contains(recipe.strMeal) {
+            if completedRecipesSet.contains(recipeName) {
                 // leave it
             }else{
                 completedRecipeButton.isSelected = false
                 completedRecipeButton.tintColor = .black
             }
         }else{
-            if completedRecipesSet.contains(recipe.strMeal) {
+            if completedRecipesSet.contains(recipeName) {
                 completedRecipeButton.isSelected = true
                 completedRecipeButton.tintColor = .systemBlue
             }else{
