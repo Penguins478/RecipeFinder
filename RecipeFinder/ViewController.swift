@@ -20,9 +20,10 @@ class ViewController: UIViewController {
     
     private var currentRecipe: Recipe?
     
-    private var completedRecipesSet: Set<String> = []
+    private var completedRecipes: [Recipe] = []
     private var favoriteRecipes: [Recipe] = []
     private let favoritesKey = "favoriteRecipes"
+    private let completedKey = "completedRecipes"
 
     private func saveFavorites() {
         let encoder = JSONEncoder()
@@ -39,9 +40,25 @@ class ViewController: UIViewController {
         }
     }
 
+    private func saveCompleted() {
+        let encoder = JSONEncoder()
+        if let encoded = try? encoder.encode(completedRecipes) {
+            UserDefaults.standard.set(encoded, forKey: completedKey)
+        }
+    }
+
+    private func loadCompleted() {
+        let decoder = JSONDecoder()
+        if let data = UserDefaults.standard.data(forKey: completedKey),
+           let decoded = try? decoder.decode([Recipe].self, from: data) {
+            completedRecipes = decoded
+        }
+    }
+
     override func viewDidLoad() {
         super.viewDidLoad()
         loadFavorites()
+        loadCompleted()
         fetchAndDisplayRecipe()
         completedRecipeButton.addTarget(self, action: #selector(clickedRecipeCompletionButton), for: .touchUpInside)
         print("Home screen loaded")
@@ -49,8 +66,10 @@ class ViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        //print(completedRecipes.count)
+        SettingsViewController.completedRecipes = completedRecipes.count
         if SettingsViewController.completedRecipes == 0 {
-            completedRecipesSet.removeAll()
+            completedRecipes.removeAll()
             completedRecipeButton.isSelected = false
             completedRecipeButton.tintColor = .black
         }
@@ -90,21 +109,9 @@ class ViewController: UIViewController {
             loadImage(from: imageURL, into: mealImageView)
         }
         
-        if completedRecipeButton.isSelected {
-            if completedRecipesSet.contains(recipeName) {
-                // leave it
-            }else{
-                completedRecipeButton.isSelected = false
-                completedRecipeButton.tintColor = .black
-            }
-        }else{
-            if completedRecipesSet.contains(recipeName) {
-                completedRecipeButton.isSelected = true
-                completedRecipeButton.tintColor = .systemBlue
-            }else{
-                // leave it
-            }
-        }
+        let isCompleted = completedRecipes.contains(where: { $0.strMeal == recipe.strMeal })
+        completedRecipeButton.isSelected = isCompleted
+        completedRecipeButton.tintColor = isCompleted ? .systemBlue : .black
         
         if favoriteRecipes.contains(where: { $0.strMeal == recipe.strMeal }) {
             favoritesButton.tintColor = .systemRed
@@ -168,16 +175,23 @@ class ViewController: UIViewController {
     }
     
     @IBAction func clickedRecipeCompletionButton(_ sender: UIButton) {
-        sender.isSelected.toggle()
-        if sender.isSelected, let recipeName = currentRecipe?.strMeal {
+        guard let recipe = currentRecipe else { return }
+        if sender.isSelected {
+            if let index = completedRecipes.firstIndex(where: { $0.strMeal == recipe.strMeal }) {
+                completedRecipes.remove(at: index)
+                SettingsViewController.completedRecipes -= 1
+            }
+        } else {
+            completedRecipes.append(recipe)
             SettingsViewController.completedRecipes += 1
-            completedRecipesSet.insert(recipeName)
-        } else if let recipeName = currentRecipe?.strMeal{
-            SettingsViewController.completedRecipes -= 1
-            completedRecipesSet.remove(recipeName)
         }
-        print("Completed Recipes: \(SettingsViewController.completedRecipes)")
-        print("Completed Recipes Set: \(completedRecipesSet)")
+        sender.isSelected.toggle()
+        saveCompleted()
+        print("Completed Recipes Count: \(SettingsViewController.completedRecipes)")
+        print("✅ Completed Recipes:")
+        for (index, recipe) in completedRecipes.enumerated() {
+            print("\(index + 1). \(recipe.strMeal)")
+        }
         updateButtonAppearance()
     }
     
