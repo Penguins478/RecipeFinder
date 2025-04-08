@@ -7,11 +7,11 @@
 
 import Foundation
 
-struct RecipeAPIResponse: Decodable {
+struct RecipeAPIResponse: Codable {
     let meals: [Recipe]
 }
 
-struct Recipe: Decodable {
+struct Recipe: Codable {
     let idMeal: String
     let strMeal: String
     let strCategory: String?
