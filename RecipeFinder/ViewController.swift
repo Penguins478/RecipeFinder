@@ -68,13 +68,14 @@ class ViewController: UIViewController {
         loadCompleted()
         fetchAndDisplayRecipe()
         completedRecipeButton.addTarget(self, action: #selector(clickedRecipeCompletionButton), for: .touchUpInside)
+        SettingsViewController.completedRecipes = completedRecipes.count
         print("Home screen loaded")
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         //print(completedRecipes.count)
-        SettingsViewController.completedRecipes = completedRecipes.count
+        //SettingsViewController.completedRecipes = completedRecipes.count
         if SettingsViewController.completedRecipes == 0 {
             completedRecipes.removeAll()
             completedRecipeButton.isSelected = false
