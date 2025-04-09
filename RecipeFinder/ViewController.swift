@@ -17,6 +17,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var favoritesButton: UIButton!
     @IBOutlet weak var watchVideoButton: UIButton!
     @IBOutlet weak var completedRecipeButton: UIButton!
+    @IBOutlet weak var outerView: UIView!
     
     private var currentRecipe: Recipe?
     
@@ -57,6 +58,12 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        outerView.layer.cornerRadius = 12
+        outerView.layer.borderWidth = 1
+        outerView.layer.borderColor = UIColor.lightGray.cgColor
+        outerView.clipsToBounds = true
+        NewRecipeButton.layer.cornerRadius = 10
+        NewRecipeButton.clipsToBounds = true
         loadFavorites()
         loadCompleted()
         fetchAndDisplayRecipe()
@@ -108,6 +115,11 @@ class ViewController: UIViewController {
         if let imageURL = recipe.strMealThumb {
             loadImage(from: imageURL, into: mealImageView)
         }
+        mealImageView.layer.cornerRadius = 12
+        mealImageView.layer.borderWidth = 1
+        mealImageView.layer.borderColor = UIColor.lightGray.cgColor
+        mealImageView.clipsToBounds = true
+        
         
         let isCompleted = completedRecipes.contains(where: { $0.strMeal == recipe.strMeal })
         completedRecipeButton.isSelected = isCompleted
