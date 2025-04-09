@@ -240,26 +240,120 @@
             </objects>
             <point key="canvasLocation" x="150" y="653"/>
         </scene>
-        <!--View Controller-->
+        <!--Favorites-->
         <scene sceneID="YkB-jS-f9n">
             <objects>
-                <viewController id="2NO-oU-fl2" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="FavoritesViewController" id="2NO-oU-fl2" customClass="FavoritesViewController" customModule="RecipeFinder" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="EAv-Ya-QnV">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="tz8-Br-K8C">
-                                <rect key="frame" x="16" y="103" width="361" height="696"/>
+                                <rect key="frame" x="16" y="103" width="361" height="689"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="181" id="9PK-Re-uPn">
-                                        <rect key="frame" x="0.0" y="50" width="361" height="181"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="FavoritesTableViewCell" rowHeight="593" id="9PK-Re-uPn" customClass="FavoritesTableViewCell" customModule="RecipeFinder" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="50" width="361" height="593"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="9PK-Re-uPn" id="EBr-w5-OiN">
-                                            <rect key="frame" x="0.0" y="0.0" width="361" height="181"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="361" height="593"/>
                                             <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="gzT-nS-OGT">
+                                                    <rect key="frame" x="41" y="31" width="279" height="551"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <subviews>
+                                                        <stackView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" axis="vertical" spacing="14" translatesAutoresizingMaskIntoConstraints="NO" id="vMU-Vg-64O">
+                                                            <rect key="frame" x="19.666666666666629" y="16" width="240" height="542.66666666666663"/>
+                                                            <subviews>
+                                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" adjustsImageSizeForAccessibilityContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="hRO-9g-TDY">
+                                                                    <rect key="frame" x="0.0" y="0.0" width="240" height="173"/>
+                                                                    <constraints>
+                                                                        <constraint firstAttribute="width" constant="240" id="5fs-s3-3Zf"/>
+                                                                        <constraint firstAttribute="width" secondItem="hRO-9g-TDY" secondAttribute="height" multiplier="240:173" id="7lY-e8-WoM"/>
+                                                                        <constraint firstAttribute="height" constant="173" id="aY6-K6-Roa"/>
+                                                                    </constraints>
+                                                                </imageView>
+                                                                <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="7gj-dh-Dwq" propertyAccessControl="none">
+                                                                    <rect key="frame" x="0.0" y="187" width="240" height="23.333333333333343"/>
+                                                                    <subviews>
+                                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Pai-s4-6de">
+                                                                            <rect key="frame" x="0.0" y="0.0" width="80" height="23.333333333333332"/>
+                                                                            <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                            <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                                                            <state key="normal" title="" image="star" catalog="system"/>
+                                                                            <connections>
+                                                                                <action selector="didTapFavoriteButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="78y-9y-5Oc"/>
+                                                                            </connections>
+                                                                        </button>
+                                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oAM-I5-Biq">
+                                                                            <rect key="frame" x="80" y="0.0" width="80" height="23.333333333333332"/>
+                                                                            <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                            <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                                                            <state key="normal" image="movieclapper" catalog="system"/>
+                                                                            <connections>
+                                                                                <action selector="didTapWatchVideoButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="xls-Ph-uol"/>
+                                                                            </connections>
+                                                                        </button>
+                                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3AS-QV-TtI">
+                                                                            <rect key="frame" x="160" y="0.0" width="80" height="23.333333333333332"/>
+                                                                            <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                            <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                                                            <state key="normal" image="checkmark.seal" catalog="system"/>
+                                                                            <connections>
+                                                                                <action selector="clickedRecipeCompletionButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="TSw-T5-hzT"/>
+                                                                            </connections>
+                                                                        </button>
+                                                                    </subviews>
+                                                                    <constraints>
+                                                                        <constraint firstAttribute="width" constant="240" id="C03-qc-Abt"/>
+                                                                        <constraint firstAttribute="height" constant="23.329999999999998" id="SBq-4q-FBS"/>
+                                                                    </constraints>
+                                                                </stackView>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Recipe Name" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Upk-xo-BrK" propertyAccessControl="none">
+                                                                    <rect key="frame" x="0.0" y="224.33333333333334" width="240" height="23"/>
+                                                                    <constraints>
+                                                                        <constraint firstAttribute="width" secondItem="Upk-xo-BrK" secondAttribute="height" multiplier="240:23" id="8ed-zA-1rs"/>
+                                                                        <constraint firstAttribute="height" constant="23" id="Hzp-0Q-mTx"/>
+                                                                        <constraint firstAttribute="width" constant="240" id="cem-TI-xld"/>
+                                                                    </constraints>
+                                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="19"/>
+                                                                    <nil key="textColor"/>
+                                                                    <nil key="highlightedColor"/>
+                                                                </label>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Recipe Category" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OJL-q0-Xhs" propertyAccessControl="none">
+                                                                    <rect key="frame" x="0.0" y="261.33333333333331" width="240" height="20.333333333333314"/>
+                                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                                    <nil key="textColor"/>
+                                                                    <nil key="highlightedColor"/>
+                                                                </label>
+                                                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="VEt-kg-Qq5" propertyAccessControl="none">
+                                                                    <rect key="frame" x="0.0" y="295.66666666666669" width="240" height="247.00000000000006"/>
+                                                                    <constraints>
+                                                                        <constraint firstAttribute="height" constant="247.00000000000006" id="hTU-6y-HSo"/>
+                                                                    </constraints>
+                                                                    <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                                                    <color key="textColor" systemColor="labelColor"/>
+                                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                                                </textView>
+                                                            </subviews>
+                                                            <constraints>
+                                                                <constraint firstItem="hRO-9g-TDY" firstAttribute="width" secondItem="hRO-9g-TDY" secondAttribute="height" multiplier="240:173" id="Aa9-ae-Odz"/>
+                                                            </constraints>
+                                                        </stackView>
+                                                    </subviews>
+                                                    <color key="backgroundColor" systemColor="opaqueSeparatorColor"/>
+                                                </view>
+                                            </subviews>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="detailsTextView" destination="VEt-kg-Qq5" id="aP4-rp-u0C"/>
+                                            <outlet property="mealImageView" destination="hRO-9g-TDY" id="cL6-Pl-X15"/>
+                                            <outlet property="recipeCategoryLabel" destination="OJL-q0-Xhs" id="2Pt-SH-w1x"/>
+                                            <outlet property="recipeNameLabel" destination="Upk-xo-BrK" id="94r-ef-l8d"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
@@ -267,7 +361,10 @@
                         <viewLayoutGuide key="safeArea" id="pIt-4t-LEx"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
-                    <navigationItem key="navigationItem" id="Mk8-xg-x0s"/>
+                    <navigationItem key="navigationItem" title="Favorites" id="Mk8-xg-x0s"/>
+                    <connections>
+                        <outlet property="tableView" destination="tz8-Br-K8C" id="nyW-Cm-R0T"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rNZ-s0-dpw" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -346,7 +443,7 @@
             <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
         <systemColor name="opaqueSeparatorColor">
-            <color red="0.77647058820000003" green="0.77647058820000003" blue="0.7843137255" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.77647058823529413" green="0.77647058823529413" blue="0.78431372549019607" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
