@@ -74,8 +74,24 @@ class ViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        //print(completedRecipes.count)
-        //SettingsViewController.completedRecipes = completedRecipes.count
+        for recipe in FavoritesViewController.toRemoveFavorites {
+            if let index = favoriteRecipes.firstIndex(where: { $0.strMeal == recipe.strMeal }) {
+                favoriteRecipes.remove(at: index)
+                if recipe.strMeal == currentRecipe?.strMeal {
+                    favoritesButton.isSelected = false
+                    favoritesButton.tintColor = .black
+                }
+            }
+        }
+        for recipe in FavoritesViewController.toRemoveCompleted {
+            if let index = completedRecipes.firstIndex(where: { $0.strMeal == recipe.strMeal }) {
+                completedRecipes.remove(at: index)
+                if recipe.strMeal == currentRecipe?.strMeal {
+                    completedRecipeButton.isSelected = false
+                    completedRecipeButton.tintColor = .black
+                }
+            }
+        }
         if SettingsViewController.completedRecipes == 0 {
             completedRecipes.removeAll()
             completedRecipeButton.isSelected = false

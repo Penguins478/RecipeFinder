@@ -22,6 +22,7 @@ class FavoritesTableViewCell: UITableViewCell {
     
     var onTapFavorite: (() -> Void)?
     var onTapWatchVideo: (() -> Void)?
+    var onTapCompleted: (() -> Void)?
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -35,10 +36,11 @@ class FavoritesTableViewCell: UITableViewCell {
         mealImageView.clipsToBounds = true
     }
     
-    func configure(with recipe: Recipe, isFavorite: Bool) {
+    func configure(with recipe: Recipe, isFavorite: Bool, isComplete: Bool) {
         recipeNameLabel.text = recipe.strMeal
         recipeCategoryLabel.text = recipe.strCategory
         favoritesButton.tintColor = isFavorite ? .systemRed : .black
+        completedRecipeButton.tintColor = isComplete ? .systemBlue : .black
     }
     
 
@@ -50,8 +52,8 @@ class FavoritesTableViewCell: UITableViewCell {
     @IBAction func didTapWatchVideo(_ sender: Any) {
         onTapWatchVideo?()
     }
-    //        override func setSelected(_ selected: Bool, animated: Bool) {
-//            super.setSelected(selected, animated: animated)
-//        }
-
+   
+    @IBAction func didTapCompleted(_ sender: Any) {
+        onTapCompleted?()
+    }
 }

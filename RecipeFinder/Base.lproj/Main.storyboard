@@ -296,6 +296,7 @@
                                                                             <state key="normal" image="checkmark.seal" catalog="system"/>
                                                                             <connections>
                                                                                 <action selector="clickedRecipeCompletionButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="TSw-T5-hzT"/>
+                                                                                <action selector="didTapCompleted:" destination="9PK-Re-uPn" eventType="touchUpInside" id="AEK-qL-0RX"/>
                                                                             </connections>
                                                                         </button>
                                                                     </subviews>
