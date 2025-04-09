@@ -20,20 +20,37 @@ class FavoritesTableViewCell: UITableViewCell {
     
     @IBOutlet weak var outerView: UIView!
     
+    var onTapFavorite: (() -> Void)?
+    var onTapWatchVideo: (() -> Void)?
+    
     override func awakeFromNib() {
-            super.awakeFromNib()
-            outerView.layer.cornerRadius = 12
-            outerView.layer.borderWidth = 1
-            outerView.layer.borderColor = UIColor.lightGray.cgColor
-            outerView.clipsToBounds = true
-            mealImageView.layer.cornerRadius = 12
-            mealImageView.layer.borderWidth = 1
-            mealImageView.layer.borderColor = UIColor.lightGray.cgColor
-            mealImageView.clipsToBounds = true
-        }
+        super.awakeFromNib()
+        outerView.layer.cornerRadius = 12
+        outerView.layer.borderWidth = 1
+        outerView.layer.borderColor = UIColor.lightGray.cgColor
+        outerView.clipsToBounds = true
+        mealImageView.layer.cornerRadius = 12
+        mealImageView.layer.borderWidth = 1
+        mealImageView.layer.borderColor = UIColor.lightGray.cgColor
+        mealImageView.clipsToBounds = true
+    }
+    
+    func configure(with recipe: Recipe, isFavorite: Bool) {
+        recipeNameLabel.text = recipe.strMeal
+        recipeCategoryLabel.text = recipe.strCategory
+        favoritesButton.tintColor = isFavorite ? .systemRed : .black
+    }
     
 
-//        override func setSelected(_ selected: Bool, animated: Bool) {
+    @IBAction func didTapFavorite(_ sender: Any) {
+        onTapFavorite?()
+    }
+    
+    
+    @IBAction func didTapWatchVideo(_ sender: Any) {
+        onTapWatchVideo?()
+    }
+    //        override func setSelected(_ selected: Bool, animated: Bool) {
 //            super.setSelected(selected, animated: animated)
 //        }
 

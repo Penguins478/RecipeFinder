@@ -44,6 +44,7 @@ class FavoritesViewController: UIViewController, UITableViewDataSource {
             let cell = tableView.dequeueReusableCell(withIdentifier: "FavoritesTableViewCell", for: indexPath) as! FavoritesTableViewCell
 
             let recipe = favoriteRecipes[indexPath.row]
+            cell.configure(with: recipe, isFavorite: true)
             
             if let imageURL = recipe.strMealThumb {
                 loadImage(from: imageURL, into: cell.mealImageView)
@@ -66,6 +67,27 @@ class FavoritesViewController: UIViewController, UITableViewDataSource {
             detailsString += "Instructions:\n\(formattedInstructions)"
 
             cell.detailsTextView.text = detailsString
+            
+            cell.onTapFavorite = { [weak self] in
+                guard let self = self else { return }
+                if let index = self.favoriteRecipes.firstIndex(where: { $0.strMeal == recipe.strMeal }) {
+                    self.favoriteRecipes.remove(at: index)
+                } else {
+                    self.favoriteRecipes.append(recipe)
+                }
+
+                if let encoded = try? JSONEncoder().encode(self.favoriteRecipes) {
+                    UserDefaults.standard.set(encoded, forKey: "favoriteRecipes")
+                }
+
+                self.tableView.reloadData()
+            }
+
+            cell.onTapWatchVideo = {
+                guard let urlString = recipe.strYoutube,
+                      let url = URL(string: urlString) else { return }
+                UIApplication.shared.open(url)
+            }
 
             return cell
         }

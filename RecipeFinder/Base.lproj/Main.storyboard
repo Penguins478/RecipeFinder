@@ -20,10 +20,10 @@
                                 <rect key="frame" x="57" y="132" width="279" height="581"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="14" translatesAutoresizingMaskIntoConstraints="NO" id="Zlv-nq-9uO">
-                                        <rect key="frame" x="19.666666666666686" y="16" width="240" height="542.66666666666663"/>
+                                        <rect key="frame" x="19.333333333333329" y="16" width="240.33333333333337" height="542.66666666666663"/>
                                         <subviews>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" adjustsImageSizeForAccessibilityContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="tEe-jG-JX1">
-                                                <rect key="frame" x="0.0" y="0.0" width="240" height="173"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="240.33333333333334" height="173"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" secondItem="tEe-jG-JX1" secondAttribute="height" multiplier="240:173" id="6KL-Dh-Eyu"/>
                                                     <constraint firstAttribute="height" constant="173" id="8z6-LS-1kf"/>
@@ -31,7 +31,7 @@
                                                 </constraints>
                                             </imageView>
                                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="kNN-TU-ODE">
-                                                <rect key="frame" x="0.0" y="187" width="240" height="23.333333333333343"/>
+                                                <rect key="frame" x="0.0" y="187" width="240.33333333333334" height="23.333333333333343"/>
                                                 <subviews>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ksr-1Z-qC9">
                                                         <rect key="frame" x="0.0" y="0.0" width="80" height="23.333333333333332"/>
@@ -43,7 +43,7 @@
                                                         </connections>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Oos-TK-fSI">
-                                                        <rect key="frame" x="79.999999999999986" y="0.0" width="80.000000000000014" height="23.333333333333332"/>
+                                                        <rect key="frame" x="80.000000000000028" y="0.0" width="80.333333333333343" height="23.333333333333332"/>
                                                         <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                                         <state key="normal" image="movieclapper" catalog="system"/>
@@ -52,7 +52,7 @@
                                                         </connections>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VLV-ty-6eq">
-                                                        <rect key="frame" x="160" y="0.0" width="80" height="23.333333333333332"/>
+                                                        <rect key="frame" x="160.33333333333331" y="0.0" width="80" height="23.333333333333332"/>
                                                         <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                                         <state key="normal" image="checkmark.seal" catalog="system"/>
@@ -63,19 +63,19 @@
                                                 </subviews>
                                             </stackView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Recipe Name" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rry-K3-atj">
-                                                <rect key="frame" x="0.0" y="224.33333333333331" width="240" height="23"/>
+                                                <rect key="frame" x="0.0" y="224.33333333333331" width="240.33333333333334" height="23"/>
                                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="19"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Recipe Category" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Gdx-SP-Y1W">
-                                                <rect key="frame" x="0.0" y="261.33333333333331" width="240" height="20.333333333333314"/>
+                                                <rect key="frame" x="0.0" y="261.33333333333331" width="240.33333333333334" height="20.333333333333314"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="tJD-lD-JcF">
-                                                <rect key="frame" x="0.0" y="295.66666666666669" width="240" height="247.00000000000006"/>
+                                                <rect key="frame" x="0.0" y="295.66666666666669" width="240.33333333333334" height="247.00000000000006"/>
                                                 <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
                                                 <color key="textColor" systemColor="labelColor"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -286,6 +286,7 @@
                                                                             <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                                                             <state key="normal" title="" image="star" catalog="system"/>
                                                                             <connections>
+                                                                                <action selector="didTapFavorite:" destination="9PK-Re-uPn" eventType="touchUpInside" id="LXt-Mw-nKT"/>
                                                                                 <action selector="didTapFavoriteButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="78y-9y-5Oc"/>
                                                                             </connections>
                                                                         </button>
@@ -295,6 +296,7 @@
                                                                             <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                                                             <state key="normal" image="movieclapper" catalog="system"/>
                                                                             <connections>
+                                                                                <action selector="didTapWatchVideo:" destination="9PK-Re-uPn" eventType="touchUpInside" id="4ps-5K-Az7"/>
                                                                                 <action selector="didTapWatchVideoButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="xls-Ph-uol"/>
                                                                             </connections>
                                                                         </button>
