@@ -95,7 +95,7 @@ Full Recipe
 
 
 Favorites
-* => Full Recipe (by cliking on the info icon)
+* => Full Recipe (by clicking on the info icon)
 * => Home (from the tab navigation)
 * => Settings (from the tab navigation)
 
@@ -106,34 +106,19 @@ Settings
 
 
 Congratulations
-* => Home (from the tab navigation / back arrow)
+* => Home (from the tab navigation/back arrow)
 * * => Full Recipes (back arrow)
-* => Favorites (from the tab navigation / back arrow)
+* => Favorites (from the tab navigation/back arrow)
 
-**Back arrow navigation depends on previous screen**
+**Back arrow navigation depends on the previous screen**
 
 ## Wireframes
 
 ![NBMetadataCache](https://hackmd.io/_uploads/rk9dBfMTJx.jpg)
 
-
-### [BONUS] Digital Wireframes & Mockups
-
-### [BONUS] Interactive Prototype
-
-## Schema 
-
-[This section will be completed in Unit 9]
-
-### Models
-
-[Add table of models]
-
 ### Networking
 
-- [Add list of network requests by screen ]
-- [Create basic snippets for each Parse network request]
-- [OPTIONAL: List endpoints if using existing API such as Yelp]
+- Endpoint source: [TheMealDB](https://www.themealdb.com/api.php)
 
 ### Sprints
 
