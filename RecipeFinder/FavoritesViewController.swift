@@ -30,7 +30,7 @@ class FavoritesViewController: UIViewController, UITableViewDataSource {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
     
-
+        
         let decoder = JSONDecoder()
         if let data = UserDefaults.standard.data(forKey: "favoriteRecipes"),
            let decoded = try? decoder.decode([Recipe].self, from: data) {
@@ -44,7 +44,9 @@ class FavoritesViewController: UIViewController, UITableViewDataSource {
         } else {
             completedRecipes = []
         }
-
+        
+        favoriteRecipes.reverse()
+        
         tableView.reloadData()
         print("Favorites Screen loaded")
     }
