@@ -40,7 +40,10 @@ class SettingsViewController: UIViewController {
         super.viewDidLoad()
         print("SettingsViewController loaded")
         setupDropdownMenu()
-        
+        randomButton.layer.cornerRadius = 10
+        randomButton.clipsToBounds = true
+        resetButton.layer.cornerRadius = 10
+        resetButton.clipsToBounds = true
         goalStepper.minimumValue = 0
         goalStepper.maximumValue = 1000
         goalStepper.stepValue = 1
