@@ -15,6 +15,10 @@ This app helps users discover recipes based on ingredients they already have, di
 
 [Presentation Link](https://docs.google.com/presentation/d/1bT-r6KYSNEvuuTBJiB3i2qztUSyVtMtIbMI-sQ7JOF8/edit#slide=id.g34a81165dd7_1_109)
 
+Live Demo:
+
+https://www.loom.com/share/3d2e4d7d801c40bea385e3c53086a790?sid=43925940-205f-4f85-9a29-fbcc8bedb5f6
+
 ### App Evaluation
 
 [Evaluation of your app across the following attributes]
