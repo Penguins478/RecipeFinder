@@ -13,6 +13,8 @@
 
 This app helps users discover recipes based on ingredients they already have, dietary needs, cuisine preferences, or time available. Encourages home cooking and reduces food waste. It adds a little fun to cooking as well as you don't know what recipe you're gonna get as well.
 
+[Presentation Link](https://docs.google.com/presentation/d/1bT-r6KYSNEvuuTBJiB3i2qztUSyVtMtIbMI-sQ7JOF8/edit#slide=id.g34a81165dd7_1_109)
+
 ### App Evaluation
 
 [Evaluation of your app across the following attributes]
