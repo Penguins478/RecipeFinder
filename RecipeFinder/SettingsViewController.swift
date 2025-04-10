@@ -27,7 +27,13 @@ class SettingsViewController: UIViewController {
     
     static var completedRecipes = 0
     
-    var randomized = true
+    static var randomized: Bool = {
+        if UserDefaults.standard.object(forKey: "randomizedSetting") == nil {
+            return true // default is randomized
+        } else {
+            return UserDefaults.standard.bool(forKey: "randomizedSetting")
+        }
+    }()
     
     
     override func viewDidLoad() {
@@ -60,17 +66,19 @@ class SettingsViewController: UIViewController {
     }
 
     func updateMenu() {
-        let option1 = UIAction(title: "Randomized", state: randomized ? .on : .off, handler: { _ in
-            self.randomized = true
+        let option1 = UIAction(title: "Randomized", state: SettingsViewController.randomized ? .on : .off, handler: { _ in
+            SettingsViewController.randomized = true
+            UserDefaults.standard.set(true, forKey: "randomizedSetting")
             self.updateMenu() // checkmark
-            print("Option 1 selected, randomized = \(self.randomized)")
+            print("Option 1 selected, randomized = \(SettingsViewController.randomized)")
             self.updateCompletedLabel()
         })
         
-        let option2 = UIAction(title: "Favorites", state: !randomized ? .on : .off, handler: { _ in
-            self.randomized = false
+        let option2 = UIAction(title: "Favorites", state: !SettingsViewController.randomized ? .on : .off, handler: { _ in
+            SettingsViewController.randomized = false
+            UserDefaults.standard.set(false, forKey: "randomizedSetting")
             self.updateMenu() // checkmark
-            print("Option 2 selected, randomized = \(self.randomized)")
+            print("Option 2 selected, randomized = \(SettingsViewController.randomized)")
             self.updateCompletedLabel()
         })
         

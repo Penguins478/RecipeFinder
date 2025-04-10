@@ -111,10 +111,17 @@ class ViewController: UIViewController {
     }
 
     private func fetchAndDisplayRecipe() {
-        RecipeService.fetchRandomRecipe { [weak self] recipe in
-            guard let self = self, let recipe = recipe else { return }
-            self.currentRecipe = recipe
-            self.updateUI(with: recipe)
+        if SettingsViewController.randomized || favoriteRecipes.isEmpty {
+            RecipeService.fetchRandomRecipe { [weak self] recipe in
+                guard let self = self, let recipe = recipe else { return }
+                self.currentRecipe = recipe
+                self.updateUI(with: recipe)
+            }
+        } else {
+            if let recipe = favoriteRecipes.randomElement() {
+                self.currentRecipe = recipe
+                self.updateUI(with: recipe)
+            }
         }
     }
 
