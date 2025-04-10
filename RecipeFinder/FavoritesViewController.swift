@@ -47,6 +47,16 @@ class FavoritesViewController: UIViewController, UITableViewDataSource {
         
         favoriteRecipes.reverse()
         
+        if SettingsViewController.completedRecipes == 0 {
+            for recipe in completedRecipes {
+                FavoritesViewController.toRemoveCompleted.append(recipe)
+            }
+            completedRecipes.removeAll()
+            if let encoded = try? JSONEncoder().encode(self.completedRecipes) {
+                UserDefaults.standard.set(encoded, forKey: "completedRecipes")
+            }
+        }
+        
         tableView.reloadData()
         print("Favorites Screen loaded")
     }
