@@ -20,7 +20,11 @@ class SettingsViewController: UIViewController {
     
     @IBOutlet weak var resetButton: UIButton!
     
-    static var recipeGoal = 5
+    static var recipeGoal: Int = {
+        let savedGoal = UserDefaults.standard.integer(forKey: "recipeGoal")
+        return savedGoal != 0 ? savedGoal : 5 // default to 5 if no value is saved
+    }()
+    
     static var completedRecipes = 0
     
     var randomized = true
@@ -34,7 +38,7 @@ class SettingsViewController: UIViewController {
         goalStepper.minimumValue = 0
         goalStepper.maximumValue = 1000
         goalStepper.stepValue = 1
-        goalStepper.value = 5
+        goalStepper.value = Double(SettingsViewController.recipeGoal)
         goalCounter.text = "\(Int(goalStepper.value))"
         
         updateCompletedLabel()
@@ -60,7 +64,6 @@ class SettingsViewController: UIViewController {
             self.randomized = true
             self.updateMenu() // checkmark
             print("Option 1 selected, randomized = \(self.randomized)")
-            //SettingsViewController.completedRecipes += 1 // just example
             self.updateCompletedLabel()
         })
         
@@ -80,6 +83,7 @@ class SettingsViewController: UIViewController {
     @IBAction func stepperValueChanged(_ sender: UIStepper) {
         goalCounter.text = "\(Int(sender.value))"
         SettingsViewController.recipeGoal = Int(sender.value)
+        UserDefaults.standard.set(SettingsViewController.recipeGoal, forKey: "recipeGoal")
         //print(SettingsViewController.recipeGoal)
     }
     

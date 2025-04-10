@@ -16,6 +16,7 @@ class FavoritesViewController: UIViewController, UITableViewDataSource {
     
     static var toRemoveFavorites: [Recipe] = []
     static var toRemoveCompleted: [Recipe] = []
+    static var toAddCompleted: [Recipe] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -113,19 +114,26 @@ class FavoritesViewController: UIViewController, UITableViewDataSource {
                 self.completedRecipes.remove(at: index)
                 if !FavoritesViewController.toRemoveCompleted.contains(where: { $0.strMeal == recipe.strMeal }) {
                     FavoritesViewController.toRemoveCompleted.append(recipe)
-                    SettingsViewController.completedRecipes -= 1
                 }
+                if let removeIndex = FavoritesViewController.toAddCompleted.firstIndex(where: { $0.strMeal == recipe.strMeal }) {
+                    FavoritesViewController.toAddCompleted.remove(at: removeIndex)
+                }
+                SettingsViewController.completedRecipes -= 1
             } else {
                 self.completedRecipes.append(recipe)
                 if let removeIndex = FavoritesViewController.toRemoveCompleted.firstIndex(where: { $0.strMeal == recipe.strMeal }) {
                     FavoritesViewController.toRemoveCompleted.remove(at: removeIndex)
                 }
+                if !FavoritesViewController.toAddCompleted.contains(where: { $0.strMeal == recipe.strMeal }) {
+                    FavoritesViewController.toAddCompleted.append(recipe)
+                }
                 SettingsViewController.completedRecipes += 1
+                checkRecipeGoal()
+                self.addConfettiAnimation(from: cell.completedRecipeButton) // only on recipe completion
             }
             if let encoded = try? JSONEncoder().encode(self.completedRecipes) {
                 UserDefaults.standard.set(encoded, forKey: "completedRecipes")
             }
-            self.addConfettiAnimation(from: cell.completedRecipeButton)
             self.tableView.reloadData()
         }
         
@@ -199,6 +207,17 @@ class FavoritesViewController: UIViewController, UITableViewDataSource {
         DispatchQueue.main.asyncAfter(deadline: DispatchTime.now().advanced(by: .milliseconds(Int(confettiCell.lifetime * 500)))) {
             confettiEmitter.removeFromSuperlayer()
         }
+    }
+    
+    func checkRecipeGoal() {
+        if SettingsViewController.completedRecipes >= SettingsViewController.recipeGoal {
+            goToCompletionScreen()
+        }
+    }
+    
+    func goToCompletionScreen() {
+        var completionViewController = CompletionViewController()
+        navigationController?.pushViewController(completionViewController, animated: true)
     }
 
     /*

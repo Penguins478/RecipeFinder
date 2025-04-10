@@ -25,6 +25,7 @@ class ViewController: UIViewController {
     private var favoriteRecipes: [Recipe] = []
     private let favoritesKey = "favoriteRecipes"
     private let completedKey = "completedRecipes"
+    
 
     private func saveFavorites() {
         let encoder = JSONEncoder()
@@ -89,6 +90,15 @@ class ViewController: UIViewController {
                 if recipe.strMeal == currentRecipe?.strMeal {
                     completedRecipeButton.isSelected = false
                     completedRecipeButton.tintColor = .black
+                }
+            }
+        }
+        for recipe in FavoritesViewController.toAddCompleted {
+            if !completedRecipes.contains(where: { $0.strMeal == recipe.strMeal }) {
+                completedRecipes.append(recipe)
+                if recipe.strMeal == currentRecipe?.strMeal {
+                    completedRecipeButton.isSelected = true
+                    completedRecipeButton.tintColor = .systemBlue
                 }
             }
         }
@@ -213,6 +223,7 @@ class ViewController: UIViewController {
         } else {
             completedRecipes.append(recipe)
             SettingsViewController.completedRecipes += 1
+            checkRecipeGoal()
         }
         sender.isSelected.toggle()
         saveCompleted()
@@ -279,6 +290,17 @@ class ViewController: UIViewController {
         DispatchQueue.main.asyncAfter(deadline: DispatchTime.now().advanced(by: .milliseconds(Int(confettiCell.lifetime * 500)))) {
             confettiEmitter.removeFromSuperlayer()
         }
+    }
+    
+    func checkRecipeGoal() {
+        if SettingsViewController.completedRecipes >= SettingsViewController.recipeGoal {
+            goToCompletionScreen()
+        }
+    }
+    
+    func goToCompletionScreen() {
+        var completionViewController = CompletionViewController()
+        navigationController?.pushViewController(completionViewController, animated: true)
     }
     
 }
